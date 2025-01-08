@@ -1,15 +1,26 @@
 import { MongoClient } from "mongodb";
 
-export async function GET() {
+export async function GET(req) {
   try {
-    // console.log("Connecting to MongoDB...");
-    const client = await MongoClient.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-    // console.log("Connected to MongoDB.");
+    const url = new URL(req.url); // Parse the request URL
+    const page = parseInt(url.searchParams.get("page")) || 1; // Default to page 1
+    const limit = parseInt(url.searchParams.get("limit")) || 8; // Default to 8 designs per page
+
+    // MongoDB connection
+    const client = await MongoClient.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
 
     const db = client.db();
-    const designs = await db.collection("designs").find().toArray();
+    const collection = db.collection("designs");
+
+    const skip = (page - 1) * limit; // Calculate documents to skip
+
+    // Fetch designs with pagination
+    const designs = await collection.find().skip(skip).limit(limit).toArray();
+
     client.close();
-    // console.log("Data fetched successfully.");
 
     return new Response(JSON.stringify(designs), { status: 200 });
   } catch (error) {
