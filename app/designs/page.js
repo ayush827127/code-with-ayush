@@ -114,11 +114,6 @@ export default function Home() {
       {loading && page > 1 && (
         <p className="text-center text-gray-500 mt-4 animate-pulse">Loading more designs...</p>
       )}
-
-      {/* No More Designs Message */}
-      {/* {!hasMore && !loading && (
-        <p className="text-center text-gray-500 mt-4 font-medium">No more designs to load.</p>
-      )} */}
     </div>
   );
 }
