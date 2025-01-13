@@ -1,0 +1,80 @@
+.fade-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+}
+
+.loader {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 6px solid transparent;
+  border-top-color: #3498db;
+  animation: spin 1s linear infinite;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #3498db;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Custom Scrollbar */
+ul::-webkit-scrollbar {
+  width: 6px; /* Thin scrollbar */
+}
+
+ul::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent scrollbar thumb */
+  border-radius: 10px; /* Rounded thumb */
+}
+
+ul::-webkit-scrollbar-track {
+  background: transparent; /* Make track background transparent */
+}
+
+/* Fade Effects */
+ul .fade-top,
+ul .fade-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 20px; /* Fade height */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+ul .fade-bottom {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
+
+ul .fade-top {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+}
