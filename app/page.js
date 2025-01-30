@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import DesignCard from "./components/DesignCard";
+import Footer from "./components/CustomFooter"
 
 export default function HomePage() {
   const [designs, setDesigns] = useState([]); // Store fetched designs
@@ -27,6 +28,82 @@ export default function HomePage() {
 
     fetchDesigns();
   }, []);
+
+  const courses = [
+    {
+      id: 1,
+      title: "C Programming",
+      description: "A comprehensive course on C programming language.",
+      image: "https://via.placeholder.com/300",
+      link: "/courses/c-programming",
+    },
+    {
+      id: 2,
+      title: "C++ Programming",
+      description: "Learn object-oriented programming with C++.",
+      image: "https://via.placeholder.com/300",
+      link: "/courses/c-plus-plus",
+    },
+    {
+      id: 3,
+      title: "JavaScript Basics",
+      description: "Master JavaScript and build web applications.",
+      image: "https://via.placeholder.com/300",
+      link: "/courses/javascript-basics",
+    },
+    {
+      id: 4,
+      title: "Data Structures",
+      description: "Learn fundamental data structures used in programming.",
+      image: "https://via.placeholder.com/300",
+      link: "/courses/data-structures",
+    },
+    {
+      id: 5,
+      title: "Algorithms",
+      description: "A deep dive into algorithms and problem-solving.",
+      image: "https://via.placeholder.com/300",
+      link: "/courses/algorithms",
+    },
+    {
+      id: 6,
+      title: "React.js",
+      description: "Learn how to build modern web apps with React.js.",
+      image: "https://via.placeholder.com/300",
+      link: "/courses/react-js",
+    }
+  ];
+
+  const notes = [
+    {
+      id: 1,
+      title: "C Programming Notes",
+      description: "Notes covering the fundamentals of C programming.",
+      image: "https://via.placeholder.com/300",
+      fileLink: "/notes/c-programming-notes.pdf",
+    },
+    {
+      id: 2,
+      title: "JavaScript Notes",
+      description: "Detailed notes on JavaScript for beginners.",
+      image: "https://via.placeholder.com/300",
+      fileLink: "/notes/javascript-notes.pdf",
+    },
+    {
+      id: 3,
+      title: "Data Structures Notes",
+      description: "Important concepts and algorithms for data structures.",
+      image: "https://via.placeholder.com/300",
+      fileLink: "/notes/data-structures-notes.pdf",
+    },
+    {
+      id: 4,
+      title: "Algorithms Notes",
+      description: "Notes explaining algorithms with examples.",
+      image: "https://via.placeholder.com/300",
+      fileLink: "/notes/algorithms-notes.pdf",
+    },
+  ];
 
   const SkeletonLoader = () => (
     <div className="border-2 border-gray-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-r from-blue-100 to-purple-100">
@@ -93,6 +170,70 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+     {/* Courses Section */}
+     <section
+        id="courses"
+        className="py-20 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
+      >
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">
+            Featured Courses
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {courses.map((course) => (
+              <div key={course.id} className="border-2 border-gray-200 p-6 rounded-lg shadow-lg">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 className="font-bold text-xl text-gray-800 mb-4">{course.title}</h3>
+                <p className="text-gray-600 mb-4">{course.description}</p>
+                <Link href={course.link}>
+                  <button className="w-full bg-blue-500 text-white font-semibold py-3 rounded-full hover:bg-blue-600">
+                    Start Watching
+                  </button>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Notes Section */}
+      <section
+        id="notes"
+        className="py-20 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
+      >
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">
+            Programming Notes
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {notes.map((note) => (
+              <div key={note.id} className="border-2 border-gray-200 p-6 rounded-lg shadow-lg">
+                <img
+                  src={note.image}
+                  alt={note.title}
+                  className="w-full h-48 object-cover rounded-lg mb-4"
+                />
+                <h3 className="font-bold text-xl text-gray-800 mb-4">{note.title}</h3>
+                <p className="text-gray-600 mb-4">{note.description}</p>
+                <a
+                  href={note.fileLink}
+                  download
+                  className="w-full text-white bg-blue-500 font-semibold py-3 rounded-full hover:bg-blue-600 text-center block"
+                >
+                  Download Notes
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer/>
     </div>
   );
 }

@@ -39,7 +39,7 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="#home" className="hover:text-pink-300 transition">
+            <Link href="/" className="hover:text-pink-300 transition">
               Home
             </Link>
             <Link href="#designs" className="hover:text-pink-300 transition">
@@ -57,8 +57,8 @@ const Navbar = () => {
 
             {/* Contact Section */}
             <Link
-              href="/contact"
-              className="bg-white text-blue-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition"
+            href="tel:+918271274460"
+            className="bg-white text-blue-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition"
             >
               Contact
             </Link>
@@ -90,7 +90,7 @@ const Navbar = () => {
         </div>
         <div className="space-y-6 px-6">
           <Link
-            href="#home"
+            href="/"
             onClick={toggleDrawer}
             className="hover:text-gray-200 transition block"
           >
@@ -123,7 +123,7 @@ const Navbar = () => {
 
           {/* Additional Menu Item */}
           <Link
-            href="/contact"
+            href="tel:+918271274460"
             onClick={toggleDrawer}
             className="bg-white text-blue-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition block"
           >
