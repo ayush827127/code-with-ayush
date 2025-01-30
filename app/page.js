@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import DesignCard from "./components/DesignCard";
-import Footer from "./components/CustomFooter"
+import CustomFooter from "./components/CustomFooter"
 
 export default function HomePage() {
   const [designs, setDesigns] = useState([]); // Store fetched designs
@@ -233,7 +233,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Footer/>
+      <CustomFooter/>
     </div>
   );
 }
