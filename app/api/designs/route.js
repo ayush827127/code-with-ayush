@@ -9,10 +9,7 @@ export async function GET(req) {
     const limit = parseInt(url.searchParams.get("limit")) || 8; // Default to 8 designs per page
 
     // MongoDB connection
-    const client = await MongoClient.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const client = await MongoClient.connect(process.env.MONGODB_URI);
 
     const db = client.db();
     const collection = db.collection("designs");
