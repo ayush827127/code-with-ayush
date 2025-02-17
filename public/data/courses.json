@@ -1,0 +1,124 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "C Programming",
+      "description": "A comprehensive course on C programming language.",
+      "image": "https://img.youtube.com/vi/KJgsSFOSQv0/maxresdefault.jpg",
+      "courselink": "/courses/c-programming",
+      "videoLink": "https://www.youtube.com/watch?v=KJgsSFOSQv0"
+    },
+    {
+      "id": 2,
+      "title": "C++ Programming",
+      "description": "Learn object-oriented programming with C++.",
+      "image": "https://img.youtube.com/vi/ZzaPdXTrSb8/maxresdefault.jpg",
+      "courselink": "/courses/c-plus-plus",
+      "videoLink": "https://www.youtube.com/watch?v=ZzaPdXTrSb8"
+    },
+    {
+      "id": 3,
+      "title": "JavaScript Basics",
+      "description": "Master JavaScript and build web applications.",
+      "image": "https://img.youtube.com/vi/PkZNo7MFNFg/maxresdefault.jpg",
+      "courselink": "/courses/javascript-basics",
+      "videoLink": "https://www.youtube.com/watch?v=PkZNo7MFNFg"
+    },
+    {
+      "id": 4,
+      "title": "Data Structures",
+      "description": "Learn fundamental data structures used in programming.",
+      "image": "https://img.youtube.com/vi/RBSGKlAvoiM/maxresdefault.jpg",
+      "courselink": "/courses/data-structures",
+      "videoLink": "https://www.youtube.com/watch?v=RBSGKlAvoiM"
+    },
+    {
+      "id": 5,
+      "title": "Algorithms",
+      "description": "A deep dive into algorithms and problem-solving.",
+      "image": "https://img.youtube.com/vi/8hly31xKli0/maxresdefault.jpg",
+      "courselink": "/courses/algorithms",
+      "videoLink": "https://www.youtube.com/watch?v=8hly31xKli0"
+    },
+    {
+      "id": 6,
+      "title": "React.js",
+      "description": "Learn how to build modern web apps with React.js.",
+      "image": "https://img.youtube.com/vi/bMknfKXIFA8/maxresdefault.jpg",
+      "courselink": "/courses/react-js",
+      "videoLink": "https://www.youtube.com/watch?v=bMknfKXIFA8"
+    },
+    {
+      "id": 7,
+      "title": "Python for Beginners",
+      "description": "Get started with Python programming from scratch.",
+      "image": "https://img.youtube.com/vi/rfscVS0vtbw/maxresdefault.jpg",
+      "courselink": "/courses/python-beginners",
+      "videoLink": "https://www.youtube.com/watch?v=rfscVS0vtbw"
+    },
+    {
+      "id": 8,
+      "title": "Node.js and Express",
+      "description": "Learn how to build backend applications using Node.js and Express.",
+      "image": "https://img.youtube.com/vi/Oe421EPjeBE/maxresdefault.jpg",
+      "courselink": "/courses/nodejs-express",
+      "videoLink": "https://www.youtube.com/watch?v=Oe421EPjeBE"
+    },
+    {
+      "id": 9,
+      "title": "SQL for Beginners",
+      "description": "Learn the basics of SQL and database management.",
+      "image": "https://img.youtube.com/vi/7S_tz1z_5bA/maxresdefault.jpg",
+      "courselink": "/courses/sql-beginners",
+      "videoLink": "https://www.youtube.com/watch?v=7S_tz1z_5bA"
+    },
+    {
+      "id": 10,
+      "title": "Machine Learning Basics",
+      "description": "Introduction to Machine Learning concepts and algorithms.",
+      "image": "https://img.youtube.com/vi/GwIo3gDZCVQ/maxresdefault.jpg",
+      "courselink": "/courses/machine-learning",
+      "videoLink": "https://www.youtube.com/watch?v=GwIo3gDZCVQ"
+    },
+    {
+      "id": 11,
+      "title": "Docker & Kubernetes",
+      "description": "Learn containerization with Docker and Kubernetes.",
+      "image": "https://img.youtube.com/vi/WZQc7RUAg18/maxresdefault.jpg",
+      "courselink": "/courses/docker-kubernetes",
+      "videoLink": "https://www.youtube.com/watch?v=WZQc7RUAg18"
+    },
+    {
+      "id": 12,
+      "title": "HTML & CSS for Beginners",
+      "description": "Master the basics of web design with HTML & CSS.",
+      "image": "https://img.youtube.com/vi/mU6anWqZJcc/maxresdefault.jpg",
+      "courselink": "/courses/html-css",
+      "videoLink": "https://www.youtube.com/watch?v=mU6anWqZJcc"
+    },
+    {
+      "id": 13,
+      "title": "Git & GitHub Essentials",
+      "description": "Learn version control with Git and GitHub.",
+      "image": "https://img.youtube.com/vi/RGOj5yH7evk/maxresdefault.jpg",
+      "courselink": "/courses/git-github",
+      "videoLink": "https://www.youtube.com/watch?v=RGOj5yH7evk"
+    },
+    {
+      "id": 14,
+      "title": "Cyber Security Fundamentals",
+      "description": "Understand cybersecurity principles and best practices.",
+      "image": "https://img.youtube.com/vi/3Kq1MIfTWCE/maxresdefault.jpg",
+      "courselink": "/courses/cyber-security",
+      "videoLink": "https://www.youtube.com/watch?v=3Kq1MIfTWCE"
+    },
+    {
+      "id": 16,
+      "title": "Flutter Mobile App Development",
+      "description": "Learn to build cross-platform mobile apps using Flutter.",
+      "image": "https://img.youtube.com/vi/CD1Y2DmL5JM/maxresdefault.jpg",
+      "courselink": "/courses/flutter-development",
+      "videoLink": "https://www.youtube.com/watch?v=CD1Y2DmL5JM"
+    }
+  ]
+}

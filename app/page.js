@@ -1,108 +1,19 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import DesignCard from "./components/DesignCard";
+import coursesData from "@/public/data/courses.json"; // Import JSON data
+import notesData from "@/public/data/notes.json";
+import { useDesigns } from "@/app/context/DesignContext";
+
 
 export default function HomePage() {
-  const [designs, setDesigns] = useState([]); // Store fetched designs
-  const [loading, setLoading] = useState(true); // Loading state
-  const [error, setError] = useState(null); // Error state
+  const { designs, loading, error } = useDesigns();
 
-  useEffect(() => {
-    async function fetchDesigns() {
-      try {
-        setLoading(true);
-        const response = await fetch("/api/designs?limit=8"); // Fetch only 8 designs
-        if (!response.ok) {
-          throw new Error("Failed to fetch designs.");
-        }
-        const data = await response.json();
-        setDesigns(data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    }
 
-    fetchDesigns();
-  }, []);
 
-  const courses = [
-    {
-      id: 1,
-      title: "C Programming",
-      description: "A comprehensive course on C programming language.",
-      image: "https://via.placeholder.com/300",
-      link: "/courses/c-programming",
-    },
-    {
-      id: 2,
-      title: "C++ Programming",
-      description: "Learn object-oriented programming with C++.",
-      image: "https://via.placeholder.com/300",
-      link: "/courses/c-plus-plus",
-    },
-    {
-      id: 3,
-      title: "JavaScript Basics",
-      description: "Master JavaScript and build web applications.",
-      image: "https://via.placeholder.com/300",
-      link: "/courses/javascript-basics",
-    },
-    {
-      id: 4,
-      title: "Data Structures",
-      description: "Learn fundamental data structures used in programming.",
-      image: "https://via.placeholder.com/300",
-      link: "/courses/data-structures",
-    },
-    {
-      id: 5,
-      title: "Algorithms",
-      description: "A deep dive into algorithms and problem-solving.",
-      image: "https://via.placeholder.com/300",
-      link: "/courses/algorithms",
-    },
-    {
-      id: 6,
-      title: "React.js",
-      description: "Learn how to build modern web apps with React.js.",
-      image: "https://via.placeholder.com/300",
-      link: "/courses/react-js",
-    }
-  ];
-
-  const notes = [
-    {
-      id: 1,
-      title: "C Programming Notes",
-      description: "Notes covering the fundamentals of C programming.",
-      image: "https://via.placeholder.com/300",
-      fileLink: "/notes/c-programming-notes.pdf",
-    },
-    {
-      id: 2,
-      title: "JavaScript Notes",
-      description: "Detailed notes on JavaScript for beginners.",
-      image: "https://via.placeholder.com/300",
-      fileLink: "/notes/javascript-notes.pdf",
-    },
-    {
-      id: 3,
-      title: "Data Structures Notes",
-      description: "Important concepts and algorithms for data structures.",
-      image: "https://via.placeholder.com/300",
-      fileLink: "/notes/data-structures-notes.pdf",
-    },
-    {
-      id: 4,
-      title: "Algorithms Notes",
-      description: "Notes explaining algorithms with examples.",
-      image: "https://via.placeholder.com/300",
-      fileLink: "/notes/algorithms-notes.pdf",
-    },
-  ];
+  const courses = coursesData.courses.slice(0, 6);
+  const notes = notesData.notes.slice(0, 6);
 
   const SkeletonLoader = () => (
     <div className="border-2 border-gray-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-r from-blue-100 to-purple-100">
@@ -116,7 +27,6 @@ export default function HomePage() {
 
   return (
     <div>
-
       {/* Hero Section */}
       <section
         id="home"
@@ -170,8 +80,8 @@ export default function HomePage() {
         </div>
       </section>
 
-     {/* Courses Section */}
-     <section
+      {/* Courses Section */}
+      <section
         id="courses"
         className="py-20 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
       >
@@ -181,21 +91,47 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {courses.map((course) => (
-              <div key={course.id} className="border-2 border-gray-200 p-6 rounded-lg shadow-lg">
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
-                />
-                <h3 className="font-bold text-xl text-gray-800 mb-4">{course.title}</h3>
-                <p className="text-gray-600 mb-4">{course.description}</p>
-                <Link href={course.link}>
-                  <button className="w-full bg-blue-500 text-white font-semibold py-3 rounded-full hover:bg-blue-600">
-                    Start Watching
-                  </button>
-                </Link>
+              <div
+                key={course.id}
+                className="border-2 border-gray-200 p-6 rounded-lg shadow-lg flex flex-col h-full"
+              >
+                <a
+                  href={course.videoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-48 object-cover rounded-lg mb-4 hover:opacity-80 transition"
+                  />
+                </a>
+                <div className="flex flex-col flex-grow">
+                  <h3 className="font-bold text-xl text-gray-800 mb-2">
+                    {course.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4 flex-grow">
+                    {course.description}
+                  </p>
+                  <a
+                    href={course.videoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="w-full bg-blue-500 text-white font-semibold py-3 rounded-full hover:bg-blue-600 mt-auto">
+                      Start Watching
+                    </button>
+                  </a>
+                </div>
               </div>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/courses">
+              <span className="text-white bg-gradient-to-r from-blue-600 to-purple-600 py-3 px-6 rounded-lg font-semibold shadow-md hover:bg-gradient-to-l transition">
+                Explore More Courses
+              </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -211,27 +147,40 @@ export default function HomePage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {notes.map((note) => (
-              <div key={note.id} className="border-2 border-gray-200 p-6 rounded-lg shadow-lg">
+              <div
+                key={note.id}
+                className="border-2 border-gray-200 p-6 rounded-lg shadow-lg flex flex-col"
+              >
                 <img
                   src={note.image}
                   alt={note.title}
                   className="w-full h-48 object-cover rounded-lg mb-4"
                 />
-                <h3 className="font-bold text-xl text-gray-800 mb-4">{note.title}</h3>
-                <p className="text-gray-600 mb-4">{note.description}</p>
+                <h3 className="font-bold text-xl text-gray-800 mb-4">
+                  {note.title}
+                </h3>
+                <p className="text-gray-600 mb-4 flex-grow">
+                  {note.description}
+                </p>
                 <a
                   href={note.fileLink}
                   download
-                  className="w-full text-white bg-blue-500 font-semibold py-3 rounded-full hover:bg-blue-600 text-center block"
+                  className="w-full text-white bg-blue-500 font-semibold py-3 rounded-full hover:bg-blue-600 text-center block mt-auto"
                 >
                   Download Notes
                 </a>
               </div>
             ))}
           </div>
+          <div className="text-center mt-8">
+            <Link href="/notes">
+              <span className="text-white bg-gradient-to-r from-blue-600 to-purple-600 py-3 px-6 rounded-lg font-semibold shadow-md hover:bg-gradient-to-l transition">
+                Explore More Notes
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
-
     </div>
   );
 }

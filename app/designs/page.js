@@ -1,61 +1,40 @@
-"use client";
-import { useEffect, useState } from "react";
+"use client"; // Ensure this is present for client-side component
+
 import DesignCard from "../components/DesignCard";
+import { useDesigns } from "@/app/context/DesignContext"; // Import the custom hook for context
 
 export default function Home() {
-  const [designs, setDesigns] = useState([]); // Stores all fetched designs
-  const [loading, setLoading] = useState(true); // Tracks loading state
-  const [error, setError] = useState(null); // Tracks error state
-  const [page, setPage] = useState(1); // Tracks current page
-  const [hasMore, setHasMore] = useState(true); // Indicates if more designs can be loaded
-  const [search, setSearch] = useState(""); // Tracks the search term
+  const {
+    designs,
+    loading,
+    error,
+    hasMore,
+    page,
+    setPage,
+    search,
+    setSearch,
+  } = useDesigns(); // Destructure context values
 
-  useEffect(() => {
-    fetchDesigns();
-  }, [page]); // Fetch designs whenever the page changes
-
-  async function fetchDesigns() {
-    try {
-      setLoading(true);
-      const response = await fetch(`/api/designs?page=${page}&limit=8`);
-      if (!response.ok) {
-        throw new Error("Failed to fetch designs.");
-      }
-      const data = await response.json();
-
-      setDesigns((prev) => [...prev, ...data]); // Append new designs to existing list
-      if (data.length < 8) {
-        setHasMore(false); // No more designs to load
-      }
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  const loadMore = () => {
-    setPage((prev) => prev + 1); // Increment page to load more designs
-  };
-
+  // Filter designs based on search
   const filteredDesigns = designs.filter((design) =>
-    design.title.toLowerCase().includes(search.toLowerCase()) // Filter by title
+    design.title.toLowerCase().includes(search.toLowerCase())
   );
 
+  // Skeleton loader for the design cards
   const SkeletonLoader = () => (
     <div className="border-2 border-gray-300 p-6 rounded-lg shadow-xl bg-gradient-to-r from-indigo-100 via-purple-200 to-pink-100 animate-pulse">
-      {/* Skeleton for Title */}
       <div className="w-3/4 h-6 bg-indigo-300 rounded mb-4"></div>
-
-      {/* Skeleton for Iframe */}
       <div className="relative overflow-hidden rounded-lg shadow-xl mb-4">
         <div className="w-full h-72 bg-purple-300 animate-pulse rounded-lg"></div>
       </div>
-
-      {/* Skeleton for Button */}
       <div className="w-1/2 h-12 bg-pink-300 rounded-full mb-4"></div>
     </div>
   );
+
+  // Load more designs when button is clicked
+  const loadMore = () => {
+    setPage(page + 1);
+  };
 
   return (
     <div className="p-8 bg-gradient-to-r from-blue-200 via-purple-300 to-pink-200 min-h-screen">
@@ -104,7 +83,8 @@ export default function Home() {
         <div className="text-center mt-8">
           <button
             onClick={loadMore}
-            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold shadow-xl hover:bg-gradient-to-l transition duration-300 transform hover:scale-105">
+            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold shadow-xl hover:bg-gradient-to-l transition duration-300 transform hover:scale-105"
+          >
             Load More Designs
           </button>
         </div>
