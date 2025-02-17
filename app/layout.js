@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar /> {/* Use the Navbar component here */}
         {children}
+        <CustomFooter/>
       </body>
     </html>
   );
