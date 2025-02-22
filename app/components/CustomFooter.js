@@ -4,7 +4,7 @@ import { FaTwitter, FaFacebook, FaLinkedin } from "react-icons/fa";
 
 export default function CustomFooter() {
   return (
-    <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-12">
+    <div className=" bg-blue-800 text-white py-12">
       <div className="container mx-auto px-6">
         {/* Footer Top Section */}
         <div className="flex justify-between items-center mb-8">

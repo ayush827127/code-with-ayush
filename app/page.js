@@ -1,16 +1,14 @@
 "use client";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import DesignCard from "./components/DesignCard";
 import coursesData from "@/public/data/courses.json"; // Import JSON data
 import notesData from "@/public/data/notes.json";
 import { useDesigns } from "@/app/context/DesignContext";
-
+import Testimonials from "./components/Landing/Testimonial";
+import Hero from "./components/Landing/Hero";
 
 export default function HomePage() {
   const { designs, loading, error } = useDesigns();
-
-
 
   const courses = coursesData.courses.slice(0, 6);
   const notes = notesData.notes.slice(0, 6);
@@ -28,23 +26,9 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section
-        id="home"
-        className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-20 text-center"
-      >
-        <div className="container mx-auto">
-          <h1 className="text-5xl font-extrabold mb-4">Code with Ayush</h1>
-          <p className="text-lg mb-8">
-            Explore interactive designs, detailed courses, and comprehensive
-            notes to level up your skills.
-          </p>
-          <Link href="#designs">
-            <span className="bg-white text-purple-600 py-3 px-6 rounded-lg font-semibold shadow-md hover:bg-gray-100 transition">
-              Get Started
-            </span>
-          </Link>
-        </div>
-      </section>
+      <ssection>
+        <Hero />
+      </ssection>
 
       {/* Designs Section */}
       <section
@@ -180,6 +164,11 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Testimoial */}
+      <section className=" bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500  text-white">
+        <Testimonials />
       </section>
     </div>
   );
