@@ -51,6 +51,9 @@ const Navbar = () => {
             <Link href="/notes" className="hover:text-pink-300 transition">
               Notes
             </Link>
+            <Link href="/blogs" className="hover:text-pink-300 transition">
+              Blogs
+            </Link>
 
             {/* Vertical line */}
             <div className="h-8 w-px bg-white mx-4"></div>
@@ -116,6 +119,14 @@ const Navbar = () => {
             className="hover:text-gray-200 transition block"
           >
             Notes
+          </Link>
+
+          <Link
+            href="/blogs"
+            onClick={toggleDrawer}
+            className="hover:text-gray-200 transition block"
+          >
+            Blogs
           </Link>
 
           {/* Line Divider */}

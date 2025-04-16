@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import coursesData from "@/public/data/courses.json"; // Import JSON data
 
 const CoursePage = () => {
