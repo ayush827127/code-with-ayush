@@ -1,0 +1,81 @@
+[
+    [
+        {
+          "id": "1",
+          "title": "Weather Forecast API",
+          "date": "April 12 2025",
+          "url": "https://weather-api167.p.rapidapi.com/api/weather/forecast?place=London%2CGB&cnt=3&units=standard&type=three_hour&mode=json&lang=en",
+          "method": "GET",
+          "headers": {
+            "X-RapidAPI-Key": "YOUR_API_KEY_HERE",
+            "X-RapidAPI-Host": "weather-api167.p.rapidapi.com"
+          },
+          "body": null,
+          "response": {
+            "type": "application/json",
+            "example": {
+              "city": "London",
+              "country": "GB",
+              "forecast": [
+                {
+                  "time": "2025-04-12T03:00:00Z",
+                  "temperature": 281.52,
+                  "weather": "Cloudy"
+                },
+                {
+                  "time": "2025-04-12T06:00:00Z",
+                  "temperature": 279.44,
+                  "weather": "Rain"
+                }
+              ]
+            }
+          }
+        }
+      ]
+,      
+[
+    {
+      "id": "2",
+      "title": "Weather Forecast API",
+      "date": "April 12 2025",
+      "url": "https://weather-api167.p.rapidapi.com/api/weather/forecast?place=London%2CGB&cnt=3&units=standard&type=three_hour&mode=json&lang=en",
+      "method": "GET",
+      "headers": {
+        "X-RapidAPI-Key": "YOUR_API_KEY_HERE",
+        "X-RapidAPI-Host": "weather-api167.p.rapidapi.com"
+      },
+      "body": null,
+      "response": {
+        "type": "application/json",
+        "example": {
+          "city": "London",
+          "country": "GB",
+          "forecast": [
+            {
+              "time": "2025-04-12T03:00:00Z",
+              "temperature": 281.52,
+              "weather": "Cloudy"
+            },
+            {
+              "time": "2025-04-12T06:00:00Z",
+              "temperature": 279.44,
+              "weather": "Rain"
+            }
+          ]
+        }
+      }
+    }
+  ]
+  ,
+  
+
+  
+    {
+        "id":"3",
+        "title":"Api of weather",
+        "date":"April 12 2025",
+        "url":"'https://weather-api167.p.rapidapi.com/api/weather/forecast?place=London%2CGB&cnt=3&units=standard&type=three_hour&mode=json&lang=en'"
+    }
+
+    
+]
