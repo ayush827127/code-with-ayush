@@ -3,6 +3,7 @@
         {
           "id": "1",
           "title": "Weather Forecast API",
+          "description":"Its description",
           "date": "April 12 2025",
           "url": "https://weather-api167.p.rapidapi.com/api/weather/forecast?place=London%2CGB&cnt=3&units=standard&type=three_hour&mode=json&lang=en",
           "method": "GET",
@@ -37,6 +38,7 @@
     {
       "id": "2",
       "title": "Weather Forecast API",
+      "description":"Its description",
       "date": "April 12 2025",
       "url": "https://weather-api167.p.rapidapi.com/api/weather/forecast?place=London%2CGB&cnt=3&units=standard&type=three_hour&mode=json&lang=en",
       "method": "GET",
@@ -73,6 +75,7 @@
     {
         "id":"3",
         "title":"Api of weather",
+        "description":"Its description",
         "date":"April 12 2025",
         "url":"'https://weather-api167.p.rapidapi.com/api/weather/forecast?place=London%2CGB&cnt=3&units=standard&type=three_hour&mode=json&lang=en'"
     }

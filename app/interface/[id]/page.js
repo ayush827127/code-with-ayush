@@ -1,5 +1,7 @@
 // 'use client'; ❌ Don't use 'use client' in this file, since it's server-side
 import apiData from "@/public/data/apiData.json";
+import { FaCode } from "react-icons/fa";
+import Link from "next/link";
 
 // ✅ Dynamic Metadata Generation
 export async function generateMetadata({ params }) {
@@ -70,6 +72,56 @@ export default function ApiDetails({ params }) {
           </pre>
         </div>
       )}
+      <div>
+      </div>
+
+        {/* other API */}
+        <div>
+        <div className="w-full  md:w-1/3">
+          <div className="bg-white shadow-lg rounded-lg px-6 py-3">
+            <h2 className="text-2xl font-semibold text-blue-600">
+              Other API's You May Like
+            </h2>
+            <ul
+              className="space-y-4 overflow-y-auto"
+              style={{
+                maxHeight: "calc(3 * 9rem)",
+                position: "relative", // Required for fade effect positioning
+              }}
+            >
+              <div className="fade-top"></div>
+              <div className="fade-bottom"></div>
+
+              {apiData.map((item) => (
+                <li
+                  key={item.id}
+                  className="flex items-center space-x-4 border-b py-4"
+                >
+                  {/* (item) */}
+                  <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center">
+                    <FaCode size={24} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold text-blue-700">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      {item.description}
+                    </p>
+                    <Link
+                      href={`/interface/${item.id}`}
+                      className="text-blue-600 mt-2 block hover:underline"
+                    >
+                      View Details
+                    </Link>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>        
+      </div>
     </main>
+    
   );
 }
