@@ -1,28 +1,25 @@
 'use client';
-import apiData from "@/public/data/apiData.json"; // Ensure this file path is correct
+import apiData from "@/public/data/apiData.json";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const Apis = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [animateIn, setAnimateIn] = useState(false);
-  
-  // Filter the API data based on the search query
-  const filteredApis = apiData.flat().filter((api) => 
+  const [copiedUrlId, setCopiedUrlId] = useState(null);
+
+  const filteredApis = apiData.flat().filter((api) =>
     api.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  
-  // Animation effect when component mounts
+
   useEffect(() => {
     setAnimateIn(true);
   }, []);
 
-  // Determine method color based on HTTP method
   const getMethodColor = (method) => {
-    // Check if method exists before calling toUpperCase()
     if (!method) return 'bg-gray-100 text-gray-800';
-    
-    switch(method.toUpperCase()) {
+
+    switch (method.toUpperCase()) {
       case 'GET': return 'bg-green-100 text-green-800';
       case 'POST': return 'bg-blue-100 text-blue-800';
       case 'PUT': return 'bg-yellow-100 text-yellow-800';
@@ -30,6 +27,12 @@ const Apis = () => {
       case 'PATCH': return 'bg-purple-100 text-purple-800';
       default: return 'bg-gray-100 text-gray-800';
     }
+  };
+
+  const handleCopy = (url, id) => {
+    navigator.clipboard.writeText(url);
+    setCopiedUrlId(id);
+    setTimeout(() => setCopiedUrlId(null), 2000); // Reset after 2 seconds
   };
 
   return (
@@ -42,15 +45,15 @@ const Apis = () => {
           <p className="text-center text-gray-600 mb-12 text-lg">
             Discover and connect with our powerful application programming interfaces
           </p>
-          
+
           {/* Search Input */}
           <div className="mb-12 max-w-2xl mx-auto relative">
-            <input 
-              type="text" 
-              placeholder="Search API..." 
+            <input
+              type="text"
+              placeholder="Search API..."
               className="w-full px-6 py-4 border-none rounded-full shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all text-lg bg-white"
-              value={searchQuery} 
-              onChange={(e) => setSearchQuery(e.target.value)} 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
             <div className="absolute right-4 top-4 text-gray-400">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -58,17 +61,15 @@ const Apis = () => {
               </svg>
             </div>
           </div>
-          
+
           {/* API Grid */}
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredApis.length > 0 ? (
               filteredApis.map((api, index) => (
                 <Link href={`/interface/${api.id}`} key={api.id} className="block">
-                  <div 
-                    className={`bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all cursor-pointer transform hover:-translate-y-1 ${
-                      animateIn ? 'opacity-100' : 'opacity-0'
-                    }`}
-                    style={{ 
+                  <div
+                    className={`bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all cursor-pointer transform hover:-translate-y-1 ${animateIn ? 'opacity-100' : 'opacity-0'}`}
+                    style={{
                       transitionDelay: `${index * 100}ms`,
                       transitionDuration: '500ms'
                     }}
@@ -89,12 +90,49 @@ const Apis = () => {
                         </svg>
                         {api.date || "No date provided"}
                       </p>
+
+                      {/* URL Section with Copy Button in the Header */}
                       <div className="bg-gray-50 p-3 rounded-lg mb-4">
+                        <div className="flex justify-between items-center mb-1">
+                          <span className="text-indigo-600 font-semibold text-sm">URL:</span>
+                          {api.url && (
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault(); // Prevent link click
+                                handleCopy(api.url, api.id);
+                              }}
+                              className="text-gray-400 hover:text-indigo-600 transition flex items-center"
+                              title="Copy URL"
+                            >
+                              {copiedUrlId === api.id ? (
+                                <span className="text-green-500 text-xs font-medium">Copied!</span>
+                              ) : (
+                                <>
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="h-4 w-4 mr-1"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M8 16h8M8 12h8m-9 8h10a2 2 0 002-2V7a2 2 0 00-2-2H9a2 2 0 00-2 2v2m0 12V9a2 2 0 012-2h6a2 2 0 012 2v12"
+                                    />
+                                  </svg>
+                                  <span className="text-xs">Copy</span>
+                                </>
+                              )}
+                            </button>
+                          )}
+                        </div>
                         <p className="text-gray-700 font-mono text-sm break-all">
-                          <span className="text-indigo-600 font-semibold">URL: </span>
                           {api.url || "No URL provided"}
                         </p>
                       </div>
+
                       <div className="flex justify-end">
                         <span className="text-indigo-600 font-medium text-sm flex items-center">
                           View Details
