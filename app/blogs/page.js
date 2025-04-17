@@ -33,10 +33,9 @@ const Blogs = () => {
     <div className="min-h-screen bg-gradient-to-br from-teal-50 to-blue-50">
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
         <div className={`transform transition-all duration-700 ${animateIn ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-7 text-center bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-blue-600">
-            Our Blog Posts
-          </h1>
-          
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-7 text-center bg-clip-text text-transparent bg-gradient-to-r from-indigo-700 via-blue-600 to-cyan-400 drop-shadow-md">
+  Our Blog Posts
+</h1>
           <p className="text-center text-gray-600 mb-6 sm:mb-8 md:mb-12 text-base sm:text-lg max-w-3xl mx-auto px-2">
             Explore our latest thoughts, insights, and updates on technology, design, and development
           </p>
