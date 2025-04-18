@@ -1,84 +1,132 @@
 [
-    [
-        {
-          "id": "1",
-          "title": "Weather Forecast API",
-          "description":"Its description",
-          "date": "April 12 2025",
-          "url": "https://weather-api167.p.rapidapi.com/api/weather/forecast?place=London%2CGB&cnt=3&units=standard&type=three_hour&mode=json&lang=en",
-          "method": "GET",
-          "headers": {
-            "X-RapidAPI-Key": "YOUR_API_KEY_HERE",
-            "X-RapidAPI-Host": "weather-api167.p.rapidapi.com"
-          },
-          "body": null,
-          "response": {
-            "type": "application/json",
-            "example": {
-              "city": "London",
-              "country": "GB",
-              "forecast": [
-                {
-                  "time": "2025-04-12T03:00:00Z",
-                  "temperature": 281.52,
-                  "weather": "Cloudy"
-                },
-                {
-                  "time": "2025-04-12T06:00:00Z",
-                  "temperature": 279.44,
-                  "weather": "Rain"
-                }
-              ]
+  {
+    "id": "1",
+    "title": "Cat Facts API",
+    "description": "Provides random cat facts.",
+    "date": "April 18 2025",
+    "url": "https://catfact.ninja/fact",
+    "method": "GET",
+    "headers": {},
+    "body": null,
+    "response": {
+      "type": "application/json",
+      "example": {
+        "fact": "Cats have five toes on their front paws, but only four on the back ones.",
+        "length": 68
+      }
+    }
+  },
+  {
+    "id": "2",
+    "title": "Bored API",
+    "description": "Suggests random activities to alleviate boredom.",
+    "date": "April 18 2025",
+    "url": "https://www.boredapi.com/api/activity",
+    "method": "GET",
+    "headers": {},
+    "body": null,
+    "response": {
+      "type": "application/json",
+      "example": {
+        "activity": "Take a bubble bath",
+        "type": "relaxation",
+        "participants": 1,
+        "price": 0.1,
+        "link": "",
+        "key": "5881028",
+        "accessibility": 0.1
+      }
+    }
+  },
+  {
+    "id": "3",
+    "title": "Agify API",
+    "description": "Predicts age based on a given name.",
+    "date": "April 18 2025",
+    "url": "https://api.agify.io?name=abhishek",
+    "method": "GET",
+    "headers": {},
+    "body": null,
+    "response": {
+      "type": "application/json",
+      "example": {
+        "name": "abhishek",
+        "age": 29,
+        "count": 1234
+      }
+    }
+  },
+  {
+    "id": "4",
+    "title": "Genderize API",
+    "description": "Predicts gender based on a given name.",
+    "date": "April 18 2025",
+    "url": "https://api.genderize.io?name=abhishek",
+    "method": "GET",
+    "headers": {},
+    "body": null,
+    "response": {
+      "type": "application/json",
+      "example": {
+        "name": "abhishek",
+        "gender": "male",
+        "probability": 0.99,
+        "count": 1234
+      }
+    }
+  },
+  {
+    "id": "5",
+    "title": "Dog CEO API",
+    "description": "Generates random dog images.",
+    "date": "April 18 2025",
+    "url": "https://dog.ceo/api/breeds/image/random",
+    "method": "GET",
+    "headers": {},
+    "body": null,
+    "response": {
+      "type": "application/json",
+      "example": {
+        "message": "https://images.dog.ceo/breeds/hound-afghan/n02088094_1003.jpg",
+        "status": "success"
+      }
+    }
+  },
+  {
+    "id": "6",
+    "title": "Random User API",
+    "description": "Generates random user data including name, email, and picture.",
+    "date": "April 18 2025",
+    "url": "https://randomuser.me/api/",
+    "method": "GET",
+    "headers": {},
+    "body": null,
+    "response": {
+      "type": "application/json",
+      "example": {
+        "results": [
+          {
+            "gender": "female",
+            "name": {
+              "title": "Ms",
+              "first": "Jane",
+              "last": "Doe"
+            },
+            "email": "jane.doe@example.com",
+            "picture": {
+              "large": "https://randomuser.me/api/portraits/women/68.jpg",
+              "medium": "https://randomuser.me/api/portraits/med/women/68.jpg",
+              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/68.jpg"
             }
           }
-        }
-      ]
-,      
-[
-    {
-      "id": "2",
-      "title": "Weather Forecast API",
-      "description":"Its description",
-      "date": "April 12 2025",
-      "url": "https://weather-api167.p.rapidapi.com/api/weather/forecast?place=London%2CGB&cnt=3&units=standard&type=three_hour&mode=json&lang=en",
-      "method": "GET",
-      "headers": {
-        "X-RapidAPI-Key": "YOUR_API_KEY_HERE",
-        "X-RapidAPI-Host": "weather-api167.p.rapidapi.com"
-      },
-      "body": null,
-      "response": {
-        "type": "application/json",
-        "example": {
-          "city": "London",
-          "country": "GB",
-          "forecast": [
-            {
-              "time": "2025-04-12T03:00:00Z",
-              "temperature": 281.52,
-              "weather": "Cloudy"
-            },
-            {
-              "time": "2025-04-12T06:00:00Z",
-              "temperature": 279.44,
-              "weather": "Rain"
-            }
-          ]
+        ],
+        "info": {
+          "seed": "abc",
+          "results": 1,
+          "page": 1,
+          "version": "1.3"
         }
       }
     }
-  ]
-  ,
-  
-
-  
-    {
-        "id":"3",
-        "title":"Api of weather",
-        "description":"Its description",
-        "date":"April 12 2025",
-        "url":"'https://weather-api167.p.rapidapi.com/api/weather/forecast?place=London%2CGB&cnt=3&units=standard&type=three_hour&mode=json&lang=en'"
-    }
-
-    
+  }
 ]

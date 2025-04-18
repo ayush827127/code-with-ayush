@@ -1,4 +1,3 @@
-// 'use client'; ❌ Don't use 'use client' in this file, since it's server-side
 import apiData from "@/public/data/apiData.json";
 import { FaCode, FaLink, FaExchangeAlt, FaClipboard, FaServer, FaCalendarAlt } from "react-icons/fa";
 import Link from "next/link";
