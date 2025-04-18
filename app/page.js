@@ -1,17 +1,20 @@
 "use client";
 import Link from "next/link";
 import DesignCard from "./components/DesignCard";
-import coursesData from "@/public/data/courses.json"; // Import JSON data
+import coursesData from "@/public/data/courses.json";
 import notesData from "@/public/data/notes.json";
+import apiData from "@/public/data/apiData.json";
 import { useDesigns } from "@/app/context/DesignContext";
 import Testimonials from "./components/Landing/Testimonial";
 import Hero from "./components/Landing/Hero";
+import ApiCard from "./components/ApiCard";
 
 export default function HomePage() {
   const { designs, loading, error } = useDesigns();
 
   const courses = coursesData.courses.slice(0, 6);
   const notes = notesData.notes.slice(0, 6);
+  const apis = apiData.slice(0, 6);
 
   const SkeletonLoader = () => (
     <div className="border-2 border-gray-200 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 bg-gradient-to-r from-blue-100 to-purple-100">
@@ -26,9 +29,9 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <ssection>
+      <section>
         <Hero />
-      </ssection>
+      </section>
 
       {/* Designs Section */}
       <section
@@ -58,6 +61,30 @@ export default function HomePage() {
             <Link href="/designs">
               <span className="text-white bg-gradient-to-r from-blue-600 to-purple-600 py-3 px-6 rounded-lg font-semibold shadow-md hover:bg-gradient-to-l transition">
                 Explore All Designs
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* APIs Section */}
+      <section
+        id="apis"
+        className="py-20 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
+      >
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">
+            Featured APIs
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {apis.map((api) => (
+              <ApiCard key={api.id} api={api} />
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/apis">
+              <span className="text-white bg-gradient-to-r from-blue-600 to-purple-600 py-3 px-6 rounded-lg font-semibold shadow-md hover:bg-gradient-to-l transition">
+                View All APIs
               </span>
             </Link>
           </div>

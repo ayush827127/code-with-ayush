@@ -51,7 +51,7 @@ export default function Hero() {
         <div className="max-w-3xl mx-auto">
           <div className="flex justify-center mr-6 mb-3">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight">
-              Coding with
+              Code with
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-orange-400">
                 {" "}
                 Ayush
@@ -85,12 +85,12 @@ export default function Hero() {
 
           {/* Buttons */}
           <div className="mt-6 flex flex-col sm:flex-row justify-center gap-3">
-            <a href="#designs" className="w-3/4 mx-auto sm:w-auto">
+            <a href="#designs" className=" sm:w-auto">
               <span className="block bg-white text-purple-600 py-2 px-5 rounded-lg text-center font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                 Explore Design
               </span>
             </a>
-            <a href="#notes" className="w-3/4 mx-auto sm:w-auto">
+            <a href="#notes" className=" sm:w-auto">
               <span className="block bg-white text-purple-600 py-2 px-5 rounded-lg text-center font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                 Free Notes
               </span>
