@@ -18,26 +18,20 @@ const CoursePage = () => {
         </h1>
 
         {/* Enhanced Search Bar */}
-        <div className="mb-8 flex justify-center">
-          <div className="relative w-80">
+        <div className="mb-12 max-w-2xl mx-auto relative">
             <input
               type="text"
-              placeholder="Search for a course..."
+              placeholder="Search API..."
+              className="w-full px-6 py-4 border-none rounded-full shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all text-lg bg-white"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-5 py-3 border-2 border-indigo-300 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent pl-12 bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm"
             />
-            <svg 
-              className="absolute left-4 top-3.5 h-5 w-5 text-indigo-500" 
-              xmlns="http://www.w3.org/2000/svg" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+            <div className="absolute right-4 top-4 text-gray-400">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
           </div>
-        </div>
 
         {/* Courses List with Enhanced Styling */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
