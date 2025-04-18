@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import CustomFooter from "./components/CustomFooter";
 import { DesignProvider } from "@/app/context/DesignContext";
+import { AuthProvider } from "@/context/AuthContext";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +28,11 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar /> {/* Use the Navbar component here */}
-        <DesignProvider>{children}</DesignProvider>
+        <DesignProvider>
+        <AuthProvider>
+          {children}
+          </AuthProvider>
+          </DesignProvider>
         <CustomFooter />
       </body>
     </html>
