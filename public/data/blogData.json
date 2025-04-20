@@ -1,0 +1,24 @@
+[
+    {
+      "id": "1",
+      "title": "How to Start with React",
+      "date": "April 10, 2025",
+      "image": "https://source.unsplash.com/1200x600/?react,javascript",
+      "content": "React is a popular JS library for building UIs..."
+    },
+    {
+      "id": "2",
+      "title": "Understanding Next.js App Router",
+      "date": "April 12, 2025",
+      "image": "https://source.unsplash.com/1200x600/?nextjs,webdev",
+      "content": "Next.js App Router introduces a new file-based routing system..."
+    },
+    {
+      "id": "3",
+      "title": "Tailwind CSS Best Practices",
+      "date": "April 15, 2025",
+      "image": "https://source.unsplash.com/1200x600/?tailwindcss,design",
+      "content": "Tailwind is a utility-first CSS framework..."
+    }
+  ]
+  
