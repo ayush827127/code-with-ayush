@@ -1,6 +1,9 @@
 "use client";
-
 import { useState } from "react";
+import dynamic from "next/dynamic";
+
+// Dynamically import Monaco to avoid SSR issues
+const Editor = dynamic(() => import("@monaco-editor/react"), { ssr: false });
 
 export default function UploadForm() {
   const [formData, setFormData] = useState({
@@ -11,6 +14,12 @@ export default function UploadForm() {
     jsContent: "",
     category: "",
   });
+
+  const [activeTab, setActiveTab] = useState("html");
+
+  const handleEditorChange = (value, language) => {
+    setFormData({ ...formData, [`${language}Content`]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,74 +56,116 @@ export default function UploadForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="p-6 sm:p-8 max-w-lg w-full mx-auto bg-white rounded-lg shadow-lg space-y-6 border border-gray-200"
-    >
-      <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center">
-        Upload Your Design
-      </h2>
-      <input
-        type="text"
-        placeholder="Title"
-        className="block w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={formData.title}
-        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-        required
-      />
-      <textarea
-        placeholder="Description"
-        className="block w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={formData.description}
-        onChange={(e) =>
-          setFormData({ ...formData, description: e.target.value })
-        }
-      />
-      <textarea
-        placeholder="HTML Content"
-        className="block w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={formData.htmlContent}
-        onChange={(e) =>
-          setFormData({ ...formData, htmlContent: e.target.value })
-        }
-        required
-      />
-      <textarea
-        placeholder="CSS Content"
-        className="block w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={formData.cssContent}
-        onChange={(e) =>
-          setFormData({ ...formData, cssContent: e.target.value })
-        }
-        required
-      />
-      <textarea
-        placeholder="JS Content"
-        className="block w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={formData.jsContent}
-        onChange={(e) =>
-          setFormData({ ...formData, jsContent: e.target.value })
-        }
-      />
-      <select
-        className="block w-full p-3 rounded-lg border border-gray-300 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={formData.category}
-        onChange={(e) =>
-          setFormData({ ...formData, category: e.target.value })
-        }
-        required
-      >
-        <option value="">Select Category</option>
-        <option value="other">Other</option>
-        <option value="Animation">Animation</option>
-        <option value="Interactive">Interactive</option>
-      </select>
-      <button
-        type="submit"
-        className="block w-full py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300"
-      >
-        Upload
-      </button>
-    </form>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-12 px-4">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+            Share Your Design
+          </h1>
+          <p className="mt-3 text-slate-600">
+            Contribute to our collection of creative web elements
+          </p>
+        </div>
+
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-purple-100 overflow-hidden"
+        >
+          {/* Header */}
+          <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-6 py-4">
+            <h2 className="text-xl font-bold text-white relative z-10 flex items-center justify-center">
+              Upload Your Design
+            </h2>
+          </div>
+
+          <div className="p-6 sm:p-8 space-y-5">
+            {/* Title, Category, Description */}
+            <div className="space-y-4">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <div className="w-full">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                  <input
+                    type="text"
+                    className="block w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    value={formData.title}
+                    onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                    required
+                  />
+                </div>
+                <div className="w-full">
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                  <select
+                    className="block w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    value={formData.category}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                    required
+                  >
+                    <option value="">Select Category</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Interactive">Interactive</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                <textarea
+                  className="block w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 min-h-24"
+                  value={formData.description}
+                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                />
+              </div>
+            </div>
+
+            {/* Code Editor Tabs */}
+            <div className="mt-8">
+              <div className="flex border-b border-gray-200">
+                {["html", "css", "js"].map((tab) => (
+                  <button
+                    key={tab}
+                    type="button"
+                    onClick={() => setActiveTab(tab)}
+                    className={`py-2 px-4 font-medium text-sm capitalize ${
+                      activeTab === tab
+                        ? "text-purple-600 border-b-2 border-purple-600"
+                        : "text-gray-500 hover:text-gray-700"
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-4">
+                <Editor
+                  height="300px"
+                  theme="vs-dark"
+                  defaultLanguage={activeTab}
+                  language={activeTab}
+                  value={formData[`${activeTab}Content`]}
+                  onChange={(value) => handleEditorChange(value, activeTab)}
+                  options={{
+                    minimap: { enabled: false },
+                    fontSize: 14,
+                    padding: { top: 10 },
+                    automaticLayout: true,
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="pt-4">
+              <button
+                type="submit"
+                className="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                Upload Design
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
