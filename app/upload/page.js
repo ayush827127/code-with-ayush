@@ -62,7 +62,7 @@ export default function UploadForm() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-12 px-4">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
             Share Your Design
@@ -118,8 +118,10 @@ export default function UploadForm() {
                 />
               </div>
             </div>
-
+            {/* editor */}
             <div className="mt-8">
+              <div className="flex flex-col lg:flex-row gap-6">
+                <div className="w-full lg:w-1/2">
               <div className="flex border-b border-gray-200">
                 {["html", "css", "js"].map((tab) => (
                   <button
@@ -139,7 +141,7 @@ export default function UploadForm() {
 
               <div className="mt-4">
                 <Editor
-                  height="300px"
+                  height="380px"
                   theme="vs-dark"
                   language={languageMap[activeTab]}
                   value={formData[`${activeTab}Content`]}
@@ -155,13 +157,16 @@ export default function UploadForm() {
                   }}
                 />
               </div>
+            </div>
               {/* LIVE PREVIEW */}
-                <div className="mt-8">
+                <div className="w-full lg:w-1/2">
+                <div>
                    <h3 className="text-lg font-semibold text-gray-700 mb-2">Live Preview</h3>
-                     <div className="w-full h-[400px] border rounded-lg overflow-hidden">
+                   </div>
+                     <div className="w-full h-[400px] border rounded-lg overflow-hidden bg-white shadow-inner">
                          <iframe
                             title="Live Preview"
-                            className="w-full h-full bg-white"
+                            className="w-full h-full"
                             srcDoc={`
                              <html>
                  <head>
@@ -185,10 +190,14 @@ export default function UploadForm() {
                 type="submit"
                 className="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2"
               >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
                 Upload Design
               </button>
             </div>
           </div>
+        </div>
         </form>
       </div>
     </div>
