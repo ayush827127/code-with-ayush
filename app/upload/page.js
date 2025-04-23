@@ -17,13 +17,18 @@ export default function UploadForm() {
 
   const [activeTab, setActiveTab] = useState("html");
 
+  const languageMap = {
+    html: "html",
+    css: "css",
+    js: "javascript", // Monaco expects 'javascript' not 'js'
+  };
+
   const handleEditorChange = (value, language) => {
     setFormData({ ...formData, [`${language}Content`]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!formData.htmlContent || !formData.cssContent || !formData.category) {
       alert("HTML, CSS content, and Category are required!");
       return;
@@ -71,15 +76,11 @@ export default function UploadForm() {
           onSubmit={handleSubmit}
           className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-purple-100 overflow-hidden"
         >
-          {/* Header */}
           <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-6 py-4">
-            <h2 className="text-xl font-bold text-white relative z-10 flex items-center justify-center">
-              Upload Your Design
-            </h2>
+            <h2 className="text-xl font-bold text-white text-center">Upload Your Design</h2>
           </div>
 
           <div className="p-6 sm:p-8 space-y-5">
-            {/* Title, Category, Description */}
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="w-full">
@@ -118,7 +119,6 @@ export default function UploadForm() {
               </div>
             </div>
 
-            {/* Code Editor Tabs */}
             <div className="mt-8">
               <div className="flex border-b border-gray-200">
                 {["html", "css", "js"].map((tab) => (
@@ -141,8 +141,7 @@ export default function UploadForm() {
                 <Editor
                   height="300px"
                   theme="vs-dark"
-                  defaultLanguage={activeTab}
-                  language={activeTab}
+                  language={languageMap[activeTab]}
                   value={formData[`${activeTab}Content`]}
                   onChange={(value) => handleEditorChange(value, activeTab)}
                   options={{
@@ -150,9 +149,35 @@ export default function UploadForm() {
                     fontSize: 14,
                     padding: { top: 10 },
                     automaticLayout: true,
+                    wordWrap: "on",
+                    suggestOnTriggerCharacters: true,
+                    quickSuggestions: true,
                   }}
                 />
               </div>
+              {/* LIVE PREVIEW */}
+                <div className="mt-8">
+                   <h3 className="text-lg font-semibold text-gray-700 mb-2">Live Preview</h3>
+                     <div className="w-full h-[400px] border rounded-lg overflow-hidden">
+                         <iframe
+                            title="Live Preview"
+                            className="w-full h-full bg-white"
+                            srcDoc={`
+                             <html>
+                 <head>
+                   <style>${formData.cssContent}</style>
+               </head>
+                    <body>
+                     ${formData.htmlContent}
+                   <script>${formData.jsContent}<\/script>
+                  </body>
+                    </html>
+                  `}
+                     sandbox="allow-scripts allow-same-origin"
+                   />
+                 </div>
+              </div>
+
             </div>
 
             <div className="pt-4">
