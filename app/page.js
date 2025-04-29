@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import DesignCard from "./components/DesignCard";
 import coursesData from "@/public/data/courses.json";
@@ -8,6 +9,9 @@ import { useDesigns } from "@/app/context/DesignContext";
 import Testimonials from "./components/Landing/Testimonial";
 import Hero from "./components/Landing/Hero";
 import ApiCard from "./components/ApiCard";
+ 
+//  import keywordData from "";
+ //description,robotex.txt 
 
 export default function HomePage() {
   const { designs, loading, error } = useDesigns();
