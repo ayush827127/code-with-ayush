@@ -7,9 +7,8 @@ import { useAuth } from "@/context/AuthContext";
 import Loader from "./Loader";
 
 const Navbar = () => {
-  const { user, logout, loginWithGoogle, loading } = useAuth()
+  const { user, logout, loginWithGoogle, loading } = useAuth();
   const [showDropdown, setShowDropdown] = useState(false);
-
 
   const [isNavbarFixed, setIsNavbarFixed] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -27,10 +26,10 @@ const Navbar = () => {
   // Toggle drawer function
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
-  }
+  };
 
   if (loading) {
-    return <Loader/>
+    return <Loader />;
   }
 
   return (
@@ -50,11 +49,14 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="hover:text-pink-300 transition">
-              Home
+            <Link href="/interface" className="hover:text-pink-300 transition">
+              APIs
             </Link>
             <Link href="/designs" className="hover:text-pink-300 transition">
               Designs
+            </Link>
+            <Link href="/upload" className="hover:text-pink-300 transition">
+              Upload
             </Link>
             <Link href="/courses" className="hover:text-pink-300 transition">
               Courses
@@ -62,22 +64,13 @@ const Navbar = () => {
             <Link href="/notes" className="hover:text-pink-300 transition">
               Notes
             </Link>
-            <Link href="/interface" className="hover:text-pink-300 transition">
-              APIS
-            </Link>
             <Link href="/blogs" className="hover:text-pink-300 transition">
               Blogs
             </Link>
+
             {/* Vertical line */}
             <div className="h-8 w-px bg-white mx-4"></div>
-            {/* Contact Section */}
-            <Link
-              href="tel:+918271274460"
-              className="bg-white text-blue-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition"
-            >
-              Contact
-            </Link>
-          
+
             {user ? (
               <div className="relative">
                 {/* Profile DP */}

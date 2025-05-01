@@ -1,5 +1,29 @@
+//seo metadata 
+
+
 "use client";
 import { useState, useEffect } from "react";
+
+export const metadata = {
+  title:'Code with Ayush- Learn Java,React,Next.js & more with free notes & Projects',
+  description:"Code with Ayush provides an all in one learning hub for mastering Java,React,Next.js,Tailwind CSS,HTML,CSS,Javascript and also provides notes of all tech related subjects.Explore free coding resource, design ideas, and practical projects.We also provide free APIs for developers to integrate into their projects. Perfect for students, beginners and professionals looking to enhance their skills with detailed notes and real-world applications. ",
+  keywords:[
+    "Code with Ayush",
+    "learn Java",
+    "React for beginners",
+    "Next.js tutorials",
+    "free coding notes",
+    "Tailwind CSS projects",
+    "Vue.js learning",
+    "frontend development",
+    "backend development",
+    "web development resources",
+    "developer community",
+    "programming for students",
+    "projects for beginners",
+    "coding for professionals",
+  ]
+}
 
 const techStack = ["Java", "React", "Vue.js", "Next.js", "Tailwind CSS"];
 
@@ -96,6 +120,24 @@ export default function Hero() {
               </span>
             </a>
           </div>
+
+          {/* seo friendly hidden content/ */}
+          <div className="sr-only">
+          <h1>Free Coding Resources, Java tutorials, Next.js ,React.js and Access Free Developer APIs</h1>
+          <p>
+            Code with Ayush is your one-stop platform for mastering modern web development. Build your frontend skills with HTML,CSS,Javascript,React,Vue.js and Tailwind Css. Explore backend development with technologies like Node.js and Express. Get access to free notes, beginner-friendly projects, and hands-on learning tools.We also provide
+            public APIs that developers can freely use in their own applications—perfect for learning or building real-world tools. Whether you're complete beginner or a developer aiming to improve, our platform provides step-by-step guidance , practical examples, and developer-ready APIs to support your journey.
+          </p>
+          <ul>
+            <li>Free notes and learning guides</li>
+            <li>Real coding projects in React, Java and Next.js</li>
+            <li>Beginner-friendly to advanced tutorials</li>
+            <li>Ready to use UI components and design inspiration</li>
+            <li>Access free public APIs for development and testings</li>
+            <li>Weekly updates with new tools and content </li>
+          </ul>
+          </div>
+          
 
           {/* Floating badges */}
           <div className="hidden md:block absolute bottom-4 right-4 transform rotate-12">

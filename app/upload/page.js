@@ -17,13 +17,18 @@ export default function UploadForm() {
 
   const [activeTab, setActiveTab] = useState("html");
 
+  const languageMap = {
+    html: "html",
+    css: "css",
+    js: "javascript", // Monaco expects 'javascript' not 'js'
+  };
+
   const handleEditorChange = (value, language) => {
     setFormData({ ...formData, [`${language}Content`]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!formData.htmlContent || !formData.cssContent || !formData.category) {
       alert("HTML, CSS content, and Category are required!");
       return;
@@ -57,7 +62,7 @@ export default function UploadForm() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-12 px-4">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
             Share Your Design
@@ -71,15 +76,11 @@ export default function UploadForm() {
           onSubmit={handleSubmit}
           className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-purple-100 overflow-hidden"
         >
-          {/* Header */}
           <div className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 px-6 py-4">
-            <h2 className="text-xl font-bold text-white relative z-10 flex items-center justify-center">
-              Upload Your Design
-            </h2>
+            <h2 className="text-xl font-bold text-white text-center">Upload Your Design</h2>
           </div>
 
           <div className="p-6 sm:p-8 space-y-5">
-            {/* Title, Category, Description */}
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="w-full">
@@ -117,9 +118,10 @@ export default function UploadForm() {
                 />
               </div>
             </div>
-
-            {/* Code Editor Tabs */}
+            {/* editor */}
             <div className="mt-8">
+              <div className="flex flex-col lg:flex-row gap-6">
+                <div className="w-full lg:w-1/2">
               <div className="flex border-b border-gray-200">
                 {["html", "css", "js"].map((tab) => (
                   <button
@@ -139,10 +141,9 @@ export default function UploadForm() {
 
               <div className="mt-4">
                 <Editor
-                  height="300px"
+                  height="380px"
                   theme="vs-dark"
-                  defaultLanguage={activeTab}
-                  language={activeTab}
+                  language={languageMap[activeTab]}
                   value={formData[`${activeTab}Content`]}
                   onChange={(value) => handleEditorChange(value, activeTab)}
                   options={{
@@ -150,9 +151,38 @@ export default function UploadForm() {
                     fontSize: 14,
                     padding: { top: 10 },
                     automaticLayout: true,
+                    wordWrap: "on",
+                    suggestOnTriggerCharacters: true,
+                    quickSuggestions: true,
                   }}
                 />
               </div>
+            </div>
+              {/* LIVE PREVIEW */}
+                <div className="w-full lg:w-1/2">
+                <div>
+                   <h3 className="text-lg font-semibold text-gray-700 mb-2">Live Preview</h3>
+                   </div>
+                     <div className="w-full h-[400px] border rounded-lg overflow-hidden bg-white shadow-inner">
+                         <iframe
+                            title="Live Preview"
+                            className="w-full h-full"
+                            srcDoc={`
+                             <html>
+                 <head>
+                   <style>${formData.cssContent}</style>
+               </head>
+                    <body>
+                     ${formData.htmlContent}
+                   <script>${formData.jsContent}<\/script>
+                  </body>
+                    </html>
+                  `}
+                     sandbox="allow-scripts allow-same-origin"
+                   />
+                 </div>
+              </div>
+
             </div>
 
             <div className="pt-4">
@@ -160,10 +190,14 @@ export default function UploadForm() {
                 type="submit"
                 className="w-full py-3 px-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:from-blue-700 hover:to-purple-700 transition-all duration-300 flex items-center justify-center gap-2"
               >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
                 Upload Design
               </button>
             </div>
           </div>
+        </div>
         </form>
       </div>
     </div>
