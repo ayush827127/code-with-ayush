@@ -1,32 +1,27 @@
-import { MongoClient } from "mongodb";
+import Design from "@/models/Design";
 
 export async function POST(request) {
-  const body = await request.json();
-  const { title, description, htmlContent, cssContent, jsContent, category } = body;
-
-  if (!title || !htmlContent || !cssContent || !category) {
+  try {
+    const body = await request.json();
+    const newDesign = await Design.create(body);
+    
     return new Response(
-      JSON.stringify({ message: "Missing required fields" }),
-      { status: 400 }
+      JSON.stringify({ 
+        message: "Design uploaded successfully!",
+        design: newDesign 
+      }),
+      { status: 201 }
+    );
+  } catch (error) {
+    console.error("Error uploading design:", error);
+    return new Response(
+      JSON.stringify({ 
+        message: error.message.includes("Missing") 
+          ? error.message 
+          : "Failed to upload design",
+        error: error.message 
+      }),
+      { status: error.message.includes("Missing") ? 400 : 500 }
     );
   }
-
-  const client = await MongoClient.connect(process.env.MONGODB_URI);
-  const db = client.db();
-
-  await db.collection("designs").insertOne({
-    title,
-    description,
-    htmlContent,
-    cssContent,
-    jsContent,
-    category, // Save the category
-    createdAt: new Date(),
-  });
-
-  client.close();
-  return new Response(
-    JSON.stringify({ message: "Design uploaded successfully!" }),
-    { status: 201 }
-  );
 }
