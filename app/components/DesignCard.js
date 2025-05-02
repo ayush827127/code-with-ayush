@@ -37,7 +37,6 @@ export default function DesignCard({ design }) {
       >
         {showCode ? "Hide Source Code" : "View Source Code"}
       </button>
-
       {/* Conditional rendering for the SourceCodeTabs */}
       {showCode && (
         <SourceCodeTabs
