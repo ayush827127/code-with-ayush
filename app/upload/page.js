@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContext"
+import { useRouter } from "next/navigation";
 
 // Dynamically import Monaco to avoid SSR issues
 const Editor = dynamic(() => import("@monaco-editor/react"), { ssr: false });
@@ -30,6 +31,14 @@ export default function UploadForm() {
   const handleEditorChange = (value, language) => {
     setFormData({ ...formData, [`${language}Content`]: value });
   };
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!userId) {
+      router.push("/login?redirect=/upload");
+    }
+  }, [userId, router]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
