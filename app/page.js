@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import DesignCard from "./components/DesignCard";
 import coursesData from "@/public/data/courses.json";
@@ -43,9 +42,10 @@ export default function HomePage() {
         className="py-20 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
       >
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">
-            Featured Designs
+          <h2 className="text-4xl font-bold text-center mb-2 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-700 bg-clip-text text-transparent drop-shadow-sm">
+          Innovative Interface Elements
           </h2>
+          <p className="text-center text-indigo-800 font-medium mb-8 text-lg italic">"Experience a design that's not just beautiful—but built for users."</p>
           {loading ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <SkeletonLoader />
@@ -77,9 +77,10 @@ export default function HomePage() {
         className="py-20 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
       >
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">
-            Featured APIs
+          <h2 className="text-4xl font-bold text-center mb-2 bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-600 bg-clip-text text-transparent drop-shadow-sm">
+          Supercharge Your Website with APIs
           </h2>
+          <p className="text-center text-purple-800 font-medium mb-8 text-lg italic">"Bring dynamic features to life with fast, secure, and flexible APIs designed for modern web development."</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {apis.map((api) => (
               <ApiCard key={api.id} api={api} />
@@ -101,9 +102,10 @@ export default function HomePage() {
         className="py-20 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
       >
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">
-            Featured Courses
+          <h2 className="text-4xl font-bold text-center mb-2 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent drop-shadow-sm">
+          Begin Your Learning Adventure
           </h2>
+          <p className="text-center text-pink-800 font-medium mb-8 text-lg">Level up your coding skills with these expert picks.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {courses.map((course) => (
               <div
@@ -133,7 +135,7 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button className="w-full bg-blue-500 text-white font-semibold py-3 rounded-full hover:bg-blue-600 mt-auto">
+                    <button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold py-3 rounded-full hover:from-purple-500 hover:to-blue-500 transition-all duration-300 mt-auto">
                       Start Watching
                     </button>
                   </a>
@@ -157,9 +159,10 @@ export default function HomePage() {
         className="py-20 bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100"
       >
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">
+          <h2 className="text-4xl font-bold text-center mb-2 bg-gradient-to-r from-pink-600 via-blue-600 to-indigo-700 bg-clip-text text-transparent drop-shadow-sm">
             Programming Notes
           </h2>
+          <p className="text-center text-blue-800 font-medium mb-8 text-lg">Learn the logic behind the code.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {notes.map((note) => (
               <div
@@ -180,7 +183,7 @@ export default function HomePage() {
                 <a
                   href={note.fileLink}
                   download
-                  className="w-full text-white bg-blue-500 font-semibold py-3 rounded-full hover:bg-blue-600 text-center block mt-auto"
+                  className="w-full text-white bg-gradient-to-r from-purple-500 to-pink-500 font-semibold py-3 rounded-full hover:from-pink-500 hover:to-purple-500 transition-all duration-300 text-center block mt-auto"
                 >
                   Download Notes
                 </a>
@@ -198,7 +201,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimoial */}
-      <section className=" bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500  text-white">
+      <section className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white">
         <Testimonials />
       </section>
     </div>
