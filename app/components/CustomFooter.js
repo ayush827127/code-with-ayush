@@ -81,7 +81,7 @@ export default function CustomFooter() {
             <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-2">
               <li>
-                <span className="text-gray-200">support@codewithayush.com</span>
+                <span className="text-gray-200">codewithayushgupta@gmail.com</span>
               </li>
               <li>
                 <span className="text-gray-200">+91 8271274460</span>

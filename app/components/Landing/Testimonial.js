@@ -3,25 +3,26 @@ import { FaQuoteLeft, FaQuoteRight, FaStar } from "react-icons/fa";
 
 const testimonials = [
   {
-    name: "Aarav Mehta",
-    role: "Software Engineer",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Abhishek Kumar Singh",
+    role: "FullStack Developer",
+    image:
+      "https://media.licdn.com/dms/image/v2/D4D03AQH4cjNvPO4PtA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1714847637948?e=1753920000&v=beta&t=ciTNN3YwnZ7MJODUy8ffQwyapHyThs3BlK9hRrwI750",
     quote:
       "This platform has transformed the way I work! It's smooth, efficient, and beautifully designed.",
     rating: 5,
   },
   {
-    name: "Priya Sharma",
-    role: "UI/UX Designer",
-    image: "https://randomuser.me/api/portraits/women/45.jpg",
+    name: "Aniket Kumar",
+    role: "Software Engineer",
+    image: "https://media-ccu2-2.cdn.whatsapp.net/v/t61.24694-24/491840168_2134672586973066_3108291364009475638_n.jpg?ccb=11-4&oh=01_Q5Aa1gH8xYIPvGJUuegrZktZfgcVX8-igGX9E7xcrexmFy-nKA&oe=683E6A83&_nc_sid=5e03e0&_nc_cat=105",
     quote:
       "Absolutely love the UI! The colors and animations make the experience seamless and engaging.",
     rating: 5,
   },
   {
-    name: "Rohan Singh",
+    name: "Ruman Sarwar",
     role: "Digital Marketer",
-    image: "https://randomuser.me/api/portraits/men/75.jpg",
+    image: "https://media.licdn.com/dms/image/v2/D5603AQHfa3UMxB_ppQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1724386299698?e=1753920000&v=beta&t=8g7ONNixPGFxLk8DT79YRZPz781Sm3kDdIAsWP_7n2Q",
     quote:
       "Fantastic platform! It has improved my workflow and the support team is always helpful.",
     rating: 4,
@@ -51,14 +52,18 @@ export default function Testimonials() {
           <div
             key={index}
             className={`absolute w-full transition-opacity duration-700 ${
-              index === activeIndex ? "opacity-100 scale-100" : "opacity-0 scale-90"
+              index === activeIndex
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-90"
             }`}
           >
             <div className="bg-white text-gray-900 p-6 rounded-2xl shadow-lg flex flex-col items-center max-w-lg mx-auto">
               <FaQuoteLeft className="text-3xl text-gray-400 mb-3" />
-              <p className="text-lg text-center italic mb-4">"{testimonial.quote}"</p>
+              <p className="text-lg text-center italic mb-4">
+                "{testimonial.quote}"
+              </p>
               <FaQuoteRight className="text-3xl text-gray-400 mb-3" />
-              
+
               {/* User Info */}
               <img
                 src={testimonial.image}

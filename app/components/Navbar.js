@@ -85,7 +85,7 @@ const Navbar = () => {
                 <Link
                   key={label}
                   href={path}
-                  className="text-white/90 hover:text-white font-medium text-sm relative group"
+                  className="text-white/90 hover:text-white font-medium  relative group"
                 >
                   {label}
                   <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
@@ -115,7 +115,7 @@ const Navbar = () => {
                 {showDropdown && (
                   <div className="absolute right-0 mt-2 w-56 bg-gradient-to-b from-blue-900/95 to-purple-900/95 rounded-lg shadow-xl border border-purple-800/30 z-50 overflow-hidden backdrop-blur-md">
                     <div className="px-4 py-3 border-b border-purple-800/30">
-                      <p className="text-sm font-medium text-white">
+                      <p className="text font-medium text-white">
                         {user.displayName || "User"}
                       </p>
                       <p className="text-xs text-white/60 truncate">
@@ -124,28 +124,15 @@ const Navbar = () => {
                     </div>
                     <Link
                       href="/profile"
-                      className="flex items-center px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors"
+                      className="flex items-center px-4 py-2.5  text-white/90 hover:text-white hover:bg-white/10 transition-colors"
                     >
                       <FiUser className="mr-3" size={14} />
                       Profile
                     </Link>
-                    <Link
-                      href="/settings"
-                      className="flex items-center px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors"
-                    >
-                      <FiSettings className="mr-3" size={14} />
-                      Settings
-                    </Link>
-                    <Link
-                      href="/help"
-                      className="flex items-center px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors"
-                    >
-                      <FiHelpCircle className="mr-3" size={14} />
-                      Help
-                    </Link>
+                    
                     <button
                       onClick={logout}
-                      className="flex items-center w-full px-4 py-2.5 text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors border-t border-purple-800/30"
+                      className="flex items-center w-full px-4 py-2.5 text-white/90 hover:text-white hover:bg-white/10 transition-colors border-t border-purple-800/30"
                     >
                       <FiLogOut className="mr-3" size={14} />
                       Sign out
