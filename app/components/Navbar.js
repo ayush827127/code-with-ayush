@@ -77,7 +77,7 @@ const Navbar = () => {
               {[
                 ["APIs", "/interface"],
                 ["Designs", "/designs"],
-                ["Upload", "/upload"],
+                ["CodeStudio", "/upload"],
                 ["Courses", "/courses"],
                 ["Notes", "/notes"],
                 ["Blogs", "/blogs"],
@@ -199,7 +199,7 @@ const Navbar = () => {
             {[
               ["Home", "/"],
               ["Designs", "/designs"],
-              ["Upload", "/upload"],
+              ["CodeStudio", "/upload"],
               ["Courses", "/courses"],
               ["Notes", "/notes"],
               ["APIs", "/interface"],
