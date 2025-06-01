@@ -2,108 +2,52 @@
   "notes": [
     {
       "id": 1,
-      "title": "C Programming Notes",
-      "description": "Notes covering the fundamentals of C programming.",
-      "image": "https://tse2.mm.bing.net/th?id=OIP._ox_UhcuZB2aTjZg4uCq9wHaJQ&pid=Api",
-      "fileLink": "https://github.com/sahilwep/C_Programming_notes"
+      "title": "Html Notes",
+      "description": "Comprehensive notes on HTML covering structure, tags, and elements.",
+      "image": "./images/notes/html.png",
+      "fileLink": "https://drive.google.com/file/d/1TPBxzSackvPIvNqkXw60AY61L5UVOz8x/view?usp=drive_link"
     },
     {
       "id": 2,
-      "title": "JavaScript Notes",
-      "description": "Detailed notes on JavaScript for beginners.",
-      "image": "https://tse2.mm.bing.net/th?id=OIP.ZumZwUw0MYTgpKfCEuTl9gHaFj&pid=Api",
-      "fileLink": "/notes/javascript-notes.pdf"
+      "title": "Css Notes",
+      "description": "Detailed CSS notes covering styling, layouts, and responsive design.",
+      "image": "./images/notes/css.png",
+      "fileLink": "https://drive.google.com/file/d/1cbqdtBvsTptBRU92nZKlM0pf9pnNfzmV/view?usp=sharing"
     },
     {
       "id": 3,
-      "title": "Data Structures Notes",
-      "description": "Important concepts and algorithms for data structures.",
-      "image": "https://tse1.mm.bing.net/th?id=OIP.0_ONT02gNSzgYDGplvGxhQHaKe&pid=Api",
-      "fileLink": "/notes/data-structures-notes.pdf"
+      "title": "JavaScript Notes",
+      "description": "Beginner-friendly notes on JavaScript covering syntax, DOM, and events.",
+      "image": "./images/notes/javascript.png",
+      "fileLink": "https://drive.google.com/file/d/1TqegMIM_TAUHP3-mNcLMoRcy-YHAOVCe/view?usp=sharing"
     },
     {
       "id": 4,
-      "title": "Algorithms Notes",
-      "description": "Notes explaining algorithms with examples.",
-      "image": "https://tse1.mm.bing.net/th?id=OIP.Tr5QXRJVhdk6lya6UdB_cgHaKe&pid=Api",
-      "fileLink": "https://github.com/lijqhs/algorithms-notes"
+      "title": "Data Structures & Algorithms Notes",
+      "description": "Key concepts, implementations, and examples for data structures and algorithms.",
+      "image": "./images/notes/dsa.png",
+      "fileLink": "https://drive.google.com/file/d/1FECIWOrwY-teNE6S9Y13dZyQfDw0Ps_Z/view?usp=sharing"
     },
     {
       "id": 5,
-      "title": "Python Programming Notes",
-      "description": "Learn Python from basics to advanced concepts.",
-      "image": "https://tse4.mm.bing.net/th?id=OIP.D0wLgCS7jgHEpYKCLokk0gHaKe&pid=Api",
-      "fileLink": "https://play.google.com/store/apps/details?id=com.noobdev7.pythonnotes"
+      "title": "DBMS Notes",
+      "description": "Concise notes on database management systems with real-world examples.",
+      "image": "./images/notes/dbms.png",
+      "fileLink": "https://drive.google.com/file/d/1tbNOtJPj0r0keY66T8AFUTv5uZn1Z7T2/view?usp=sharing"
     },
     {
       "id": 6,
-      "title": "Java Notes",
-      "description": "Comprehensive notes on Java programming.",
-      "image": "https://tse3.mm.bing.net/th?id=OIP.PqhAQeXYdP1Han4hYHIWxwHaJl&pid=Api",
-      "fileLink": "https://github.com/krishnasagrawal/Java-Programming-Notes"
+      "title": "Node Js Notes",
+      "description": "Notes covering Node.js fundamentals, modules, and backend development basics.",
+      "image": "./images/notes/nodejs.png",
+      "fileLink": "https://drive.google.com/file/d/1FjleeWctzakp3d22_Ze-hSXHAvZa69sI/view?usp=sharing"
     },
     {
       "id": 7,
-      "title": "Machine Learning Notes",
-      "description": "An introduction to Machine Learning concepts and algorithms.",
-      "image": "https://tse4.mm.bing.net/th?id=OIP.NODUHxZiXGcRmKXJGBu4nQHaKe&pid=Api",
-      "fileLink": "/notes/machine-learning-notes.pdf"
-    },
-    {
-      "id": 8,
-      "title": "Operating Systems Notes",
-      "description": "Detailed notes covering OS fundamentals and processes.",
-      "image": "https://tse4.mm.bing.net/th?id=OIP.674A05kaFTmv-_rbSuS3YAHaKe&pid=Api",
-      "fileLink": "/notes/operating-systems-notes.pdf"
-    },
-    {
-      "id": 9,
-      "title": "Computer Networks Notes",
-      "description": "A deep dive into networking concepts and protocols.",
-      "image": "https://tse4.mm.bing.net/th?id=OIP.Qj1Bd8xH0Ko8zFuF6wyFvgHaJl&pid=Api",
-      "fileLink": "/notes/computer-networks-notes.pdf"
-    },
-    {
-      "id": 10,
-      "title": "Cybersecurity Notes",
-      "description": "Learn about cybersecurity threats, defenses, and best practices.",
-      "image": "https://tse2.mm.bing.net/th?id=OIP.jmYer-kNIbnefwq_Cafn4gHaKd&pid=Api",
-      "fileLink": "/notes/cybersecurity-notes.pdf"
-    },
-    {
-      "id": 11,
-      "title": "Advanced Database Management Systems Notes",
-      "description": "Comprehensive notes on advanced DBMS topics.",
-      "image": "https://tse4.mm.bing.net/th?id=OIP.ITJxfUschgJMrFEjg_QPyQHaJz&pid=Api",
-      "fileLink": "https://edutechlearners.com/lecturenotes/Advance-DataBase-Management-System-Notes.pdf"
-    },
-    {
-      "id": 12,
-      "title": "Automata Theory Notes",
-      "description": "Detailed notes on automata theory and formal languages.",
-      "image": "https://tse1.mm.bing.net/th?id=OIP.uOLjsw7nlX19eyFeOGdwewHaKe&pid=Api",
-      "fileLink": "https://edutechlearners.com/lecturenotes/Automata-Theory-Notes.pdf"
-    },
-    {
-      "id": 13,
-      "title": "Compiler Design Notes",
-      "description": "Insights into compiler construction and design principles.",
-      "image": "https://tse2.mm.bing.net/th?id=OIP.WGEhWGuhlUhcuRjz93g2YwHaJ4&pid=Api",
-      "fileLink": "https://edutechlearners.com/lecturenotes/Compiler-Design-Notes.pdf"
-    },
-    {
-      "id": 14,
-      "title": "Computer Graphics Notes",
-      "description": "Fundamentals and advanced topics in computer graphics.",
-      "image": "https://tse2.mm.bing.net/th?id=OIP.HMODCiGzqwL61x1dWaNbNwHaKe&pid=Api",
-      "fileLink": "https://edutechlearners.com/lecturenotes/Computer-Graphics-Notes.pdf"
-    },
-    {
-      "id": 15,
-      "title": "Cryptography and Network Security Notes",
-      "description": "Comprehensive guide to cryptography and securing networks.",
-      "image": "https://tse3.mm.bing.net/th?id=OIP.4lUP7rSR56x5DNUU8xor6AHaKe&pid=Api",
-      "fileLink": "https://edutechlearners.com/lecturenotes/Cryptography-And-Network-Security-Notes.pdf"
+      "title": "React Js Notes",
+      "description": "Essential React.js notes on components, hooks, state management, and routing.",
+      "image": "./images/notes/reactjs.png",
+      "fileLink": "https://drive.google.com/file/d/1AzQ1Bv9laZzGiiaxTU4I47Mo6QkS1XXC/view?usp=sharing"
     }
   ]
 }

@@ -115,16 +115,6 @@ export default function HomePage() {
             APIs
           </button>
           <button
-            onClick={() => setActiveTab("courses")}
-            className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
-              activeTab === "courses"
-                ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
-                : "bg-white text-gray-700 hover:bg-gray-100"
-            }`}
-          >
-            Courses
-          </button>
-          <button
             onClick={() => setActiveTab("notes")}
             className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
               activeTab === "notes"
@@ -133,6 +123,16 @@ export default function HomePage() {
             }`}
           >
             Notes
+          </button>
+          <button
+            onClick={() => setActiveTab("courses")}
+            className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
+              activeTab === "courses"
+                ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md"
+                : "bg-white text-gray-700 hover:bg-gray-100"
+            }`}
+          >
+            Courses
           </button>
         </div>
       </div>
@@ -269,6 +269,103 @@ export default function HomePage() {
         </motion.section>
       )}
 
+      {/* Notes Section - Enhanced */}
+      {(activeTab === "all" || activeTab === "notes") && (
+        <motion.section
+          id="notes"
+          className="py-20 relative"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeInUpVariants}
+        >
+          {/* Background graphics */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
+            <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-300/20 to-transparent rounded-full"></div>
+            <div className="absolute top-40 -left-20 w-60 h-60 bg-gradient-to-br from-indigo-300/20 to-transparent rounded-full"></div>
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="flex flex-col items-center mb-12">
+              <div className="inline-block p-1 px-3 bg-blue-100 rounded-full text-blue-800 text-xs font-semibold mb-3">
+                QUICK REFERENCES
+              </div>
+              <h2 className="text-5xl font-bold text-center mb-2 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-700 bg-clip-text text-transparent drop-shadow-sm">
+                Developer's Cheat Sheets
+              </h2>
+              <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full my-4"></div>
+              <p className="text-center text-blue-800 font-medium mb-8 text-lg max-w-2xl">
+                Quick, structured, and logical notes to make your coding journey
+                smooth.
+              </p>
+            </div>
+
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+            >
+              {notes.map((note) => (
+                <motion.div
+                  key={note.id}
+                  variants={fadeInUpVariants}
+                  className="bg-white border-2 border-gray-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col group"
+                >
+                  <div className="relative overflow-hidden rounded-xl mb-4">
+                    <img
+                      src={note.image}
+                      alt={note.title}
+                      className="w-full h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <h3 className="font-bold text-xl text-gray-800 mb-4">
+                    {note.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4 flex-grow">
+                    {note.description}
+                  </p>
+                  <a
+                    href={note.fileLink}
+                    download
+                    className="w-full group relative overflow-hidden bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold py-3 rounded-full hover:shadow-lg transition-all duration-300 text-center block mt-auto"
+                  >
+                    <span className="relative z-10 flex items-center justify-center">
+                      Download Notes
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 ml-2 transform group-hover:translate-y-1 transition-transform"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                  </a>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <div className="text-center mt-12">
+              <Link href="/notes">
+                <span className="inline-block group relative overflow-hidden text-white bg-gradient-to-r from-blue-600 to-indigo-600 py-4 px-8 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
+                  <span className="relative z-10">Explore More Notes</span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </span>
+              </Link>
+            </div>
+          </div>
+        </motion.section>
+      )}
+
       {/* Courses Section - Enhanced */}
       {(activeTab === "all" || activeTab === "courses") && (
         <motion.section
@@ -383,103 +480,6 @@ export default function HomePage() {
                 <span className="inline-block group relative overflow-hidden text-white bg-gradient-to-r from-pink-600 to-purple-600 py-4 px-8 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                   <span className="relative z-10">Explore More Courses</span>
                   <span className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                </span>
-              </Link>
-            </div>
-          </div>
-        </motion.section>
-      )}
-
-      {/* Notes Section - Enhanced */}
-      {(activeTab === "all" || activeTab === "notes") && (
-        <motion.section
-          id="notes"
-          className="py-20 relative"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInUpVariants}
-        >
-          {/* Background graphics */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
-            <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-300/20 to-transparent rounded-full"></div>
-            <div className="absolute top-40 -left-20 w-60 h-60 bg-gradient-to-br from-indigo-300/20 to-transparent rounded-full"></div>
-          </div>
-
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="flex flex-col items-center mb-12">
-              <div className="inline-block p-1 px-3 bg-blue-100 rounded-full text-blue-800 text-xs font-semibold mb-3">
-                QUICK REFERENCES
-              </div>
-              <h2 className="text-5xl font-bold text-center mb-2 bg-gradient-to-r from-blue-600 via-indigo-700 to-purple-700 bg-clip-text text-transparent drop-shadow-sm">
-                Developer's Cheat Sheets
-              </h2>
-              <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full my-4"></div>
-              <p className="text-center text-blue-800 font-medium mb-8 text-lg max-w-2xl">
-                Quick, structured, and logical notes to make your coding journey
-                smooth.
-              </p>
-            </div>
-
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-6"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-            >
-              {notes.map((note) => (
-                <motion.div
-                  key={note.id}
-                  variants={fadeInUpVariants}
-                  className="bg-white border-2 border-gray-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col group"
-                >
-                  <div className="relative overflow-hidden rounded-xl mb-4">
-                    <img
-                      src={note.image}
-                      alt={note.title}
-                      className="w-full h-48 object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                  <h3 className="font-bold text-xl text-gray-800 mb-4">
-                    {note.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 flex-grow">
-                    {note.description}
-                  </p>
-                  <a
-                    href={note.fileLink}
-                    download
-                    className="w-full group relative overflow-hidden bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold py-3 rounded-full hover:shadow-lg transition-all duration-300 text-center block mt-auto"
-                  >
-                    <span className="relative z-10 flex items-center justify-center">
-                      Download Notes
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 ml-2 transform group-hover:translate-y-1 transition-transform"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                  </a>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <div className="text-center mt-12">
-              <Link href="/notes">
-                <span className="inline-block group relative overflow-hidden text-white bg-gradient-to-r from-blue-600 to-indigo-600 py-4 px-8 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                  <span className="relative z-10">Explore More Notes</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-700 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
                 </span>
               </Link>
             </div>

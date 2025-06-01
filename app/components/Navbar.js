@@ -1,15 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import {
-  FiMenu,
-  FiX,
-  FiChevronDown,
-  FiUser,
-  FiLogOut,
-  FiSettings,
-  FiHelpCircle,
-} from "react-icons/fi";
+import { FiMenu, FiX, FiChevronDown, FiUser, FiLogOut } from "react-icons/fi";
 import { useAuth } from "@/context/AuthContext";
 
 const Navbar = () => {
@@ -78,8 +70,8 @@ const Navbar = () => {
                 ["APIs", "/interface"],
                 ["Designs", "/designs"],
                 ["CodeStudio", "/upload"],
-                ["Courses", "/courses"],
                 ["Notes", "/notes"],
+                ["Courses", "/courses"],
                 ["Blogs", "/blogs"],
               ].map(([label, path]) => (
                 <Link
@@ -129,7 +121,7 @@ const Navbar = () => {
                       <FiUser className="mr-3" size={14} />
                       Profile
                     </Link>
-                    
+
                     <button
                       onClick={logout}
                       className="flex items-center w-full px-4 py-2.5 text-white/90 hover:text-white hover:bg-white/10 transition-colors border-t border-purple-800/30"
@@ -200,8 +192,8 @@ const Navbar = () => {
               ["Home", "/"],
               ["Designs", "/designs"],
               ["CodeStudio", "/upload"],
-              ["Courses", "/courses"],
               ["Notes", "/notes"],
+              ["Courses", "/courses"],
               ["APIs", "/interface"],
               ["Blogs", "/blogs"],
             ].map(([label, path]) => (

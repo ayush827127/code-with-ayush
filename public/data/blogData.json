@@ -1,24 +1,10 @@
 [
-    {
-      "id": "1",
-      "title": "How to Start with React",
-      "date": "April 10, 2025",
-      "image": "https://source.unsplash.com/1200x600/?react,javascript",
-      "content": "React is a popular JS library for building UIs..."
-    },
-    {
-      "id": "2",
-      "title": "Understanding Next.js App Router",
-      "date": "April 12, 2025",
-      "image": "https://source.unsplash.com/1200x600/?nextjs,webdev",
-      "content": "Next.js App Router introduces a new file-based routing system..."
-    },
-    {
-      "id": "3",
-      "title": "Tailwind CSS Best Practices",
-      "date": "April 15, 2025",
-      "image": "https://source.unsplash.com/1200x600/?tailwindcss,design",
-      "content": "Tailwind is a utility-first CSS framework..."
-    }
-  ]
-  
+  {
+    "id": "1",
+    "title": "Open Any GitHub Repo in VS Code Instantly — With This 1-Second Trick!",
+    "date": "June 1, 2025",
+    "image": "/images/blogs/blog1.png",
+    "author": "Ayush Gupta",
+    "content": "<div style=\"font-family: Arial, sans-serif; background: #f5f5f5; color: #222; line-height: 1.6; padding: 20px; margin: auto;\"><h1 style=\"color: #333;\">🚀 Open Any GitHub Repo in VS Code Instantly — With This 1-Second Trick!</h1><p><strong style=\"color: #2c3e50;\">🔥 No cloning. No installations. Just add <code style=\"background:#eee; padding: 2px 6px;\">1s</code> to the link and BOOM — full VS Code in your browser!</strong></p><hr style=\"margin: 20px 0;\"><h2 style=\"color: #444;\">👋 Introduction</h2><p>Ever stumbled upon a cool GitHub repository and thought:</p><blockquote style=\"border-left: 4px solid #ccc; padding-left: 10px; color: #666;\">“I wish I could explore this like I do in VS Code — with a sidebar, folders, and syntax highlighting!”</blockquote><p>Well, here’s a <strong>mind-blowing trick</strong> that many developers still don’t know:</p><h2 style=\"color: #444;\">✨ The Magic: Add <code style=\"background:#eee; padding: 2px 6px;\">1s</code> After <code style=\"background:#eee; padding: 2px 6px;\">github</code></h2><p>Just change the word <code style=\"background:#eee; padding: 2px 6px;\">github</code> in the URL to <code style=\"background:#eee; padding: 2px 6px;\">github1s</code>, and you’ll unlock a full <strong>VS Code-like interface</strong>, instantly.</p><h3 style=\"color: #444;\">🔗 Example:</h3><p>Original GitHub link:</p><code style=\"display:block; background:#eee; padding: 10px; border-left: 4px solid #999;\">https://github.com/ayushgupta-tech/codewithaysh</code><p>Change it to:</p><code style=\"display:block; background:#e8f5e9; padding: 10px; border-left: 4px solid #4caf50;\">https://github1s.com/ayushgupta-tech/codewithaysh</code><p>Open that link — and voilà! 🎉 You’ll see your repo inside a <strong>VS Code-style web editor</strong>, no setup needed.</p><h2 style=\"color: #444;\">🧠 Why Is This Awesome?</h2><table style=\"width:100%; border-collapse: collapse;\"><thead><tr style=\"background:#ddd;\"><th style=\"padding:10px; border:1px solid #ccc;\">🔍 Feature</th><th style=\"padding:10px; border:1px solid #ccc;\">✅ Benefit</th></tr></thead><tbody><tr><td style=\"padding:10px; border:1px solid #ccc;\">VS Code UI in browser</td><td style=\"padding:10px; border:1px solid #ccc;\">No need to install anything</td></tr><tr><td style=\"padding:10px; border:1px solid #ccc;\">Full file tree</td><td style=\"padding:10px; border:1px solid #ccc;\">Navigate files like a pro</td></tr><tr><td style=\"padding:10px; border:1px solid #ccc;\">Syntax highlighting</td><td style=\"padding:10px; border:1px solid #ccc;\">Makes code reading easy</td></tr><tr><td style=\"padding:10px; border:1px solid #ccc;\">Keyboard shortcuts</td><td style=\"padding:10px; border:1px solid #ccc;\">Same as your local VS Code setup</td></tr><tr><td style=\"padding:10px; border:1px solid #ccc;\">Works on any public repo</td><td style=\"padding:10px; border:1px solid #ccc;\">Explore open source in seconds</td></tr></tbody></table><h2 style=\"color: #444;\">📦 Great Use Cases</h2><ul><li>✅ Quickly explore any GitHub project</li><li>✅ Read open-source code with structure</li><li>✅ Teach others without cloning anything</li><li>✅ Review pull requests visually</li></ul><h2 style=\"color: #444;\">🛠️ Pro Tip</h2><p>If you’re a teacher, content creator, or student — <strong>bookmark github1s.com</strong> or use a Chrome extension to open links automatically in this mode.</p><h2 style=\"color: #444;\">🧪 Try It Now!</h2><p>Copy any GitHub repo link you like, add <code style=\"background:#eee; padding: 2px 6px;\">1s</code> after <code style=\"background:#eee; padding: 2px 6px;\">github</code>, and open it in a new tab. You're now using one of the fastest GitHub hacks ever!</p><h2 style=\"color: #444;\">🙌 Final Thoughts</h2><p>Sometimes, it's the <strong>simplest tricks</strong> that change how we work. With just three characters (<code style=\"background:#eee; padding: 2px 6px;\">1s</code>), you've unlocked a better way to browse and read code.</p><p><strong>Liked this trick?</strong> 💬 Share it with your coding friends — or show it to someone new to programming. It's one of those \"Wow!\" moments they’ll never forget.</p></div>"
+  }
+]

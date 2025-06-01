@@ -48,7 +48,7 @@ const NotesPage = () => {
                     className="w-full h-40 object-cover transform group-hover:scale-105 transition duration-500"
                   />
                   <div className="absolute bottom-3 left-3 bg-purple-600/90 text-white text-xs font-medium px-2 py-1 rounded-full z-20">
-                    Programming
+                    Handwritten
                   </div>
                 </div>
                 

@@ -136,7 +136,7 @@ const Blogs = () => {
                         <div className="flex-grow min-h-6"></div>
                       )}
                       
-                      <div className="flex items-center justify-between mt-3 pt-3 sm:mt-4 sm:pt-4 border-t border-gray-100">
+                      <div className="flex items-center justify-between  border-t border-gray-100">
                         <div className="flex items-center">
                           {blog.author && blog.authorImage ? (
                             <>
