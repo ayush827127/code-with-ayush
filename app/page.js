@@ -74,7 +74,7 @@ export default function HomePage() {
       {/* Enhanced Hero Section */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/30 via-purple-500/20 to-pink-500/30 pointer-events-none"></div>
-        <Hero />
+      <Hero />
         {/* Decorative Elements */}
         <div className="absolute top-40 left-10 w-32 h-32 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
         <div className="absolute top-20 right-10 w-32 h-32 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
