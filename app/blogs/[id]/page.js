@@ -5,7 +5,8 @@ export async function generateMetadata({ params }) {
   const blog = blogData.find((b) => b.id === params.id);
   return {
     title: blog?.title || "Blog",
-    description: blog?.content?.replace(/<[^>]+>/g, "").slice(0, 160) || "Blog article",
+    description:
+      blog?.content?.replace(/<[^>]+>/g, "").slice(0, 160) || "Blog article",
     openGraph: {
       title: blog?.title,
       description: blog?.content?.replace(/<[^>]+>/g, "").slice(0, 160),
@@ -50,7 +51,10 @@ export default function BlogDetails({ params }) {
             </Link>
           </li>
           <li>/</li>
-          <li aria-current="page" className="text-gray-800 font-semibold truncate max-w-xs">
+          <li
+            aria-current="page"
+            className="text-gray-800 font-semibold truncate max-w-xs"
+          >
             {blog.title}
           </li>
         </ol>
@@ -69,11 +73,11 @@ export default function BlogDetails({ params }) {
           </time>
         </header>
 
-        <figure className="mb-8">
+        <figure className="mb-8 bg-gray-200">
           <img
             src={blog.image || "/images/blogs/blog1.png"}
             alt={blog.title}
-            className="w-full rounded-lg object-cover max-h-96 shadow-md"
+            className="w-full rounded-lg object-fit max-h-96 shadow-md"
             loading="lazy"
           />
         </figure>
