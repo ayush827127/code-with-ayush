@@ -45,13 +45,8 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <nav
-        className={`${
-          isNavbarFixed
-            ? "fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-gradient-to-r from-blue-600/95 via-purple-600/95 to-pink-500/95 shadow-lg"
-            : "relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-500"
-        } transition-all duration-300 border-b border-purple-800/30`}
-      >
+      <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-gradient-to-r from-blue-600/95 via-purple-600/95 to-pink-500/95 shadow-lg border-b border-purple-800/30 transition-all duration-300">
+
         <div className="container mx-auto px-6 py-3 flex justify-between items-center">
           {/* Logo */}
           <Link
@@ -256,6 +251,9 @@ const Navbar = () => {
 
       {/* Spacer when navbar is fixed */}
       {isNavbarFixed && <div className="h-16"></div>}
+
+      <div className="h-12"></div>
+
     </>
   );
 };
